@@ -8,6 +8,8 @@ const app = express()
 
 app.use(cors())
 
+app.use('/api', require('./routes/index'))
+
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
 })
