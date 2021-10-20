@@ -12,10 +12,13 @@ app.use(cors())
 //Rate Limiting
 const limiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10mins
-    max: 5
+    max: 15
 })
 app.use(limiter)
 app.set('trust proxy', 1)
+
+//set static folder
+app.use(express.static('public'))
 
 app.use('/api', require('./routes/index'))
 
